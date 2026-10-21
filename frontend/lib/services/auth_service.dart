@@ -51,7 +51,7 @@ class AuthService {
     }
   }
 
-  // Moved INSIDE the AuthService class so it can access `baseUrl` properly
+  // Fetch user profile method
   Future<void> getUserProfile(String userId) async {
     try {
       final response = await http.get(
@@ -67,5 +67,12 @@ class AuthService {
     } catch (e) {
       print(e.toString());
     }
+  }
+
+  // Proper sign out method inside AuthService
+  Future<void> signOut() async {
+    // If you use local storage (like SharedPreferences) later to save tokens, clear them here:
+    // final prefs = await SharedPreferences.getInstance();
+    // await prefs.clear();
   }
 }
